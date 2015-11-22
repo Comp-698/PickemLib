@@ -15,7 +15,7 @@ func TestData(t *testing.T) {
 func TestSaturate(t *testing.T) {
     var pickemName = "Week1"
     var pickem = Data(pickemName)
-    saturate(pickem)
+    Saturate(pickem)
     var one = 1
     if pickem.PickemGames["first"].Weeks["one"] != one {
         t.Errorf("Error!  pickem.Weeks[\"one\"] == %d, not %d", pickem.PickemGames["first"].Weeks["one"], one)
