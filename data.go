@@ -43,7 +43,7 @@ func Data(s string) *Pickem {
     return p
 }
 
-func saturate(p *Pickem) *Pickem {
+func Saturate(p *Pickem) *Pickem {
     p.PickemGames = make(map[string]PickemGame)
     p.PickemGames["first"] = PickemGame { 
         Weeks : make(map[string]int),
