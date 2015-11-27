@@ -43,7 +43,9 @@ func Data(s string) *Pickem {
     return p
 }
 
-func Saturate(p *Pickem) *Pickem {
+func Saturate(s string) *Pickem {
+    p = new(Pickem)
+    p.Name = s
     p.PickemGames = make(map[string]PickemGame)
     p.PickemGames["first"] = PickemGame { 
         Weeks : make(map[string]int),
@@ -60,6 +62,5 @@ func Saturate(p *Pickem) *Pickem {
         }
         p.PickemGames["first"].Players[player].Picks[wk1.ID] = GamesPicked{ Game : g1, Points : 5 }
     }
-
-return p
+    return p
 }
