@@ -21,7 +21,7 @@ type Player struct {
 
 type Week struct {
     ID string
-
+    Games map[string]Game
 }
 
 type GamesPicked struct {
@@ -30,9 +30,9 @@ type GamesPicked struct {
 }
 
 type Game struct {
-    teamHome string
-    teamAway string
-    location string
+    TeamHome string
+    TeamAway string
+    Location string
 }
 
 var p *Pickem
@@ -52,9 +52,12 @@ func Saturate(s string) *Pickem {
         Players : make(map[string]Player),
     }
     p.PickemGames["first"].Weeks["one"] = 1
-    var wk1 = Week{ ID : "Week1" }
+    var wk1 = Week{ ID : "Week1",
+        Games : make(map[string]Game),
+    }
     var playerNames = []string{ "Jon", "Tim", "JonnyT", "Huong", "Vitali" }
-    var g1 = Game { teamHome : "Patriots", teamAway : "Bills", location : "Foxboro, MA" }
+    var g1 = Game { TeamHome : "Patriots", TeamAway : "Bills", Location : "Foxboro, MA" }
+    wk1.Games[g1.Location] = g1;
     for _, player := range playerNames {
         p.PickemGames["first"].Players[player] = Player {
             Name : player,
