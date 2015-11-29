@@ -11,7 +11,7 @@ type Pickem struct {
 
 type PickemGame struct {
     Players map[string]Player
-    Weeks map[string]int
+    Weeks map[string]Week
 }
 
 type Player struct {
@@ -21,6 +21,7 @@ type Player struct {
 
 type Week struct {
     ID string
+    Ordinal int
     Games map[string]Game
 }
 
@@ -48,13 +49,14 @@ func Saturate(s string) *Pickem {
     p.Name = s
     p.PickemGames = make(map[string]PickemGame)
     p.PickemGames["first"] = PickemGame { 
-        Weeks : make(map[string]int),
+        Weeks : make(map[string]Week),
         Players : make(map[string]Player),
     }
-    p.PickemGames["first"].Weeks["one"] = 1
     var wk1 = Week{ ID : "Week1",
+        Ordinal : 1,
         Games : make(map[string]Game),
     }
+    p.PickemGames["first"].Weeks[wk1.ID] = wk1 
     var playerNames = []string{ "Jon", "Tim", "JonnyT", "Huong", "Vitali" }
     var g1 = Game { TeamHome : "Patriots", TeamAway : "Bills", Location : "Foxboro, MA" }
     wk1.Games[g1.Location] = g1;
