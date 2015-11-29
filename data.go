@@ -25,6 +25,11 @@ type Week struct {
     Games map[string]Game
 }
 
+type GamesChoices struct {
+    Player Player
+    Week Week
+}
+
 type GamesPicked struct {
     Game Game 
     Points int
@@ -65,7 +70,7 @@ func Saturate(s string) *Pickem {
             Name : player,
             Picks : make(map[string]GamesPicked),
         }
-        p.PickemGames["first"].Players[player].Picks[wk1.ID] = GamesPicked{ Game : g1, Points : 5 }
+        //p.PickemGames["first"].Players[player].Picks[wk1.ID] = GamesPicked{ Game : g1, Points : 5 }
     }
     return p
 }
