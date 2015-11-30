@@ -72,5 +72,9 @@ func Saturate(s string) *Pickem {
         }
         //p.PickemGames["first"].Players[player].Picks[wk1.ID] = GamesPicked{ Game : g1, Points : 5 }
     }
+
+    wk1.Games["Phoenix, AZ"] = Game { TeamHome : "Cardinals", TeamAway : "Vikings", Location : "Phoenix, AZ" }
+    wk1.Games["Charlotte, SC"] = Game { TeamHome : "Panthers", TeamAway : "Falcons", Location : "Charlotte, SC" }
+
     return p
 }
