@@ -27,7 +27,7 @@ type Week struct {
 
 type GamesChoices struct {
     Player Player
-    Week []Games
+    Week []Game
 }
 
 type GamesPicked struct {
